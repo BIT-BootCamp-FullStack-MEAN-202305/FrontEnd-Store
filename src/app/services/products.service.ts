@@ -78,4 +78,22 @@ export class ProductsService {
     );
   }
 
+  uploadFile( formData: FormData ) {
+
+    // Configurar las cabeceras para la solicitud de subida de archivos
+    const headers = this.headers.append( 'Accept', 'application/json' );   // Asegúrate de que el backend pueda responder en formato JSON
+
+    // Puedes agregar otras cabeceras necesarias aquí, si es necesario
+    console.log( `${this.BASE_URL}/upload/` );
+
+    console.log( formData );
+
+    // Envía la imagen al backend
+    return this.http.post<any>(
+      `${this.BASE_URL}/upload/`,     // URL del BackEnd al que debemos hacer la peticion
+      formData,
+      { headers }                     // Cabeceras con información requerida
+    );
+  }
+
 }

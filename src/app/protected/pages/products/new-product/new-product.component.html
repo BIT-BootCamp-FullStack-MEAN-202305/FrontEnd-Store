@@ -2,6 +2,7 @@
   class="form form-product"
   [formGroup]="productForm"
   (ngSubmit)="createProduct()"
+  enctype="multipart/form-data"
   autocomplete="off"
 >
   <h2>Productos</h2>
@@ -36,6 +37,19 @@
       placeholder="Cantidad disponible del Producto"
     />
   </div>
+
+  <div class="field">
+    <label for="image">Imagen</label>
+    <input
+      id="image"
+      type="file"
+      class="input-field"
+      formControlName="image"
+      accept="image/*"
+      (change)="onImageChange($event)"
+    />
+  </div>
+
   <div class="field">
     <label for="category">Categoria</label>
     <select
